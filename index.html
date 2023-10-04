@@ -3,9 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <script type="text/javascript src="main.js"></script>
+    <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputBrand" class="form-label">Brand</label>
+          <input type="text" class="form-control" id="inputBrand">
+        </div>
+        <div class="col-md-6">
+          <label for="inputModel" class="form-label">Model</label>
+          <input type="text" class="form-control" id="inputModel">
+        </div>
+        <div class="col-12">
+          <label for="inputColour" class="form-label">Colour</label>
+          <input type="text" class="form-control" id="inputColour" placeholder="Black">
+        </div>
+        <div class="col-12">
+          <label for="inputCarSalon" class="form-label">Car salon</label>
+          <input type="text" class="form-control" id="inputCarSalon" placeholder="Leather, textile or alcantara">
+        </div>
+        <div class="col-md-6">
+          <label for="inputYear" class="form-label">Year</label>
+          <input type="number" class="form-control" id="inputYear">
+        </div>
+        <div class="col-md-4">
+          <label for="inputVolume" class="form-label">State</label>
+          <select id="inputVolume" class="form-select">
+            <option selected>Volume</option>
+          </select>
+        </div>
+        
+        <div class="col-md-2">
+          <label for="inputTransmition" class="form-label">Transmition</label>
+          <select id="inputTransmition" class="form-select">
+            <option selected>Transmition</option>
+            <option>Automat</option>
+            <option>Robot</option>
+            <option>Manual</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Add car to list</button>
+        </div>
+      </form>
+
+      <table class="table" id="carTable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Colour</th>
+            <th scope="col">Salon</th>
+            <th scope="col">Year</th>
+            <th scope="col">State</th>
+            <th scope="col">Transmition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Toyota</td>
+            <td>Mark 2</td>
+            <td>Black</td>
+            <td>Alcantara</td>
+            <td>1994</td>
+            <td>2.4</td>
+            <td>Manual</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Nissan</td>
+            <td>350Z</td>
+            <td>Green</td>
+            <td>Alcantara</td>
+            <td>2007</td>
+            <td>3.5</td>
+            <td>Manual</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Volkswagen</td>
+            <td>Golf</td>
+            <td>Red</td>
+            <td>Leather</td>
+            <td>2017</td>
+            <td>2.0</td>
+            <td>Automat</td>
+          </tr>
+        </tbody>
+      </table>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
