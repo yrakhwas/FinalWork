@@ -16,6 +16,7 @@ function createDeleteButton(rowIndex) {
     deleteButton.addEventListener("click", function () {
         // Викликати функцію для видалення даних
         deleteCar(rowIndex); 
+        
     });
     return deleteButton;
 }
@@ -27,11 +28,6 @@ function deleteCar(rowIndex) {
 
     // Оновити таблицю для відображення оновлених даних
     updateTable();
-    // newRow.remove();
-    // // Видалити об'єкт автомобіля зі збережених даних
-    // savedCars.splice(index, 1);
-    // // Оновити збережені дані в localStorage
-    //localStorage.setItem("cars", JSON.stringify(savedCars));
 };
 
 function editCar(savedCars, rowIndex)
