@@ -1,6 +1,9 @@
 // Отримання посилань на елементи DOM
 const form = document.querySelector(".row.g-3");
 const table = document.getElementById("carTable");
+const modal = document.getElementById("myModal");
+const closeModalBtn = document.getElementById("closeModal");
+const editForm = document.getElementById("editForm");
 const savedCars = JSON.parse(localStorage.getItem("cars")) || [];
 
 // Функція для оновлення таблиці на основі збережених даних
