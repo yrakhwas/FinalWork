@@ -5,6 +5,19 @@ const modal = document.getElementById("myModal");
 const closeModalBtn = document.getElementById("closeModal");
 const editForm = document.getElementById("editForm");
 const savedCars = JSON.parse(localStorage.getItem("cars")) || [];
+const colorOptions = ["Червоний", "Синій", "Зелений", "Жовтий"];
+
+
+// Отримуємо посилання на елемент <select> за його ідентифікатором
+//const selectElement = document.getElementsById("colourSelect");
+
+// Додавання опцій в <select> на основі масиву
+// colorOptions.forEach(function (color) {
+//   const optionElement = document.createElement("option");
+//   optionElement.text = color;
+//   selectElement.appendChild(optionElement);
+// });
+
 
 // Функція для оновлення таблиці на основі збережених даних
 function updateTable() {
@@ -45,7 +58,7 @@ function createEditButton(rowIndex) {
   const editButton = document.createElement("button");
   editButton.innerText = "Редагувати";
   editButton.addEventListener("click", function () {
-    editCar(rowIndex);
+    openModal(rowIndex);
   });
   return editButton;
 }
@@ -76,6 +89,15 @@ function deleteCar(rowIndex) {
   updateTable();
 }
 
+function openModal()
+{
+  modal.style.display = "block";
+}
+
+function closeModal()
+{
+  modal.style.display = "none";
+}
 // Викликати функцію для відображення збережених даних
 updateTable();
 
@@ -102,7 +124,11 @@ form.addEventListener("submit", function (e) {
     volume: volume,
     transmition: transmition,
   };
-
+  
+closeModalBtn.addEventListener("click", function()
+{
+  closeModal();
+})
   // Додавання нового автомобіля до масиву збережених автомобілів
   savedCars.push(newCar);
 

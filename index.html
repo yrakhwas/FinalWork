@@ -14,9 +14,18 @@
       <h2>Edit Car Details</h2>
       <form id="editForm">
         <!-- Поля для редагування даних -->
-        <label for="editBrand">Brand:</label>
-        <input type="text" id="editBrand">
-        <!-- Додайте інші поля для редагування інших даних -->
+        <input type="text" id="editBrand" placeholder="Brand">
+        <input type="text" id="editModel" placeholder="Model">
+        <select id="colourSelect">
+        <input type="text" id="editSalon" placeholder="Salon">
+        <input type="text" id="editYear" placeholder="Year">
+        <input type="text" id="editState" placeholder="State">
+        <select id="inputTransmition" class="form-select">
+          <option selected>Transmition</option>
+          <option>Automat</option>
+          <option>Robot</option>
+          <option>Manual</option>
+        </select>
         <button type="submit">Save</button>
       </form>
     </div>
