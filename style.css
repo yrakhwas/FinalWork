@@ -38,4 +38,13 @@ html {
   cursor: pointer;
 }
 
+.modal button {
+  margin: 10px;
+  border-radius: 5px;
+}
+.modal input {
+  border-radius: 5px;
+  margin: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -6,17 +6,60 @@ const closeModalBtn = document.getElementById("closeModal");
 const editForm = document.getElementById("editForm");
 const savedCars = JSON.parse(localStorage.getItem("cars")) || [];
 const colorOptions = ["Червоний", "Синій", "Зелений", "Жовтий"];
-
+const transmitionOption = ["Automat", "Robot", "Manual"];
 
 // Отримуємо посилання на елемент <select> за його ідентифікатором
-//const selectElement = document.getElementsById("colourSelect");
+// const colourSelects = document.querySelectorAll(".colourSelect");
+// const transmitionSelect = document.querySelectorAll(".transmitionSelect");
 
+const colourSelectModal = document.getElementById("colourSelectModal");
+const colourSelectCol12 = document.getElementById("colourSelectCol12");
+const transmitionSelectModal = document.getElementById("transmitionSelectModal");
+const transmitionSelectCol12 = document.getElementById("transmitionSelectCol12");
+
+
+
+for (const transmition of transmitionOption) {
+  const optionElement = document.createElement("option");
+  optionElement.value = transmition; // Значення опції
+  optionElement.textContent = transmition; // Текст опції
+  transmitionSelectModal.appendChild(optionElement);
+  transmitionSelectCol12.appendChild(optionElement.cloneNode(true));
+}
+
+
+for (const colour of colorOptions) {
+  const optionElement = document.createElement("option");
+  optionElement.value = colour; // Значення опції
+  optionElement.textContent = colour; // Текст опції
+  colourSelectModal.appendChild(optionElement);
+  colourSelectCol12.appendChild(optionElement.cloneNode(true));
+}
 // Додавання опцій в <select> на основі масиву
-// colorOptions.forEach(function (color) {
-//   const optionElement = document.createElement("option");
-//   optionElement.text = color;
-//   selectElement.appendChild(optionElement);
+// colourSelects.forEach(function (select) {
+//   colorOptions.forEach(function (color) {
+//     const optionElement = document.createElement("option");
+//     optionElement.value = color; // Значення опції
+//     optionElement.textContent = color; // Текст опції
+//     select.appendChild(optionElement);
+//   });
 // });
+
+// Додавання опцій для кольору в модальному вікні
+colorOptions.forEach(function (color) {
+  const optionElement = document.createElement("option");
+  optionElement.value = color;
+  optionElement.textContent = color;
+  colourSelectModal.appendChild(optionElement);
+});
+
+// Додавання опцій для трансмісії в модальному вікні
+transmitionOption.forEach(function (transmition) {
+  const optionElement = document.createElement("option");
+  optionElement.value = transmition;
+  optionElement.textContent = transmition;
+  transmitionSelectModal.appendChild(optionElement);
+});
 
 
 // Функція для оновлення таблиці на основі збережених даних
@@ -108,11 +151,11 @@ form.addEventListener("submit", function (e) {
   // Отримайте значення полів форми
   const brand = document.getElementById("inputBrand").value;
   const model = document.getElementById("inputModel").value;
-  const colour = document.getElementById("inputColour").value;
+  const colour = document.getElementById("colourSelectCol12").value;
   const carSalon = document.getElementById("inputCarSalon").value;
   const year = document.getElementById("inputYear").value;
   const volume = document.getElementById("inputVolume").value;
-  const transmition = document.getElementById("inputTransmition").value;
+  const transmition = document.getElementById("transmitionSelectCol12").value;
 
   // Створення об'єкта нового автомобіля
   const newCar = {

@@ -14,18 +14,27 @@
       <h2>Edit Car Details</h2>
       <form id="editForm">
         <!-- Поля для редагування даних -->
-        <input type="text" id="editBrand" placeholder="Brand">
-        <input type="text" id="editModel" placeholder="Model">
-        <select id="colourSelect">
-        <input type="text" id="editSalon" placeholder="Salon">
-        <input type="text" id="editYear" placeholder="Year">
-        <input type="text" id="editState" placeholder="State">
-        <select id="inputTransmition" class="form-select">
-          <option selected>Transmition</option>
-          <option>Automat</option>
-          <option>Robot</option>
-          <option>Manual</option>
-        </select>
+        <div>
+          <input type="text" id="editBrand" placeholder="Brand">
+        </div>
+        <div>
+          <input type="text" id="editModel" placeholder="Model">
+        </div>
+        <div>
+          <select class="colourSelect" id="colourSelectModal"></select>
+        </div>
+        <div>
+          <input type="text" id="editSalon" placeholder="Salon">
+        </div>
+        <div>
+          <input type="text" id="editYear" placeholder="Year">
+        </div>
+        <div>
+          <input type="text" id="editState" placeholder="State">
+        </div>
+        <div>
+          <select class="transmitionSelect form-select" id="transmitionSelectModal"></select>
+        </div>
         <button type="submit">Save</button>
       </form>
     </div>
@@ -41,16 +50,18 @@
           <input type="text" class="form-control" id="inputModel">
         </div>
         <div class="col-12">
-          <label for="inputColour" class="form-label">Colour</label>
-          <input type="text" class="form-control" id="inputColour" placeholder="Black">
-        </div>
-        <div class="col-12">
-          <label for="inputCarSalon" class="form-label">Car salon</label>
-          <input type="text" class="form-control" id="inputCarSalon" placeholder="Leather, textile or alcantara">
+          <label for="inputColour" class="form-label" >Colour</label>
+          <div>
+            <select class="colourSelect" id="colourSelectCol12"></select>
+          </div>
         </div>
         <div class="col-md-6">
           <label for="inputYear" class="form-label">Year</label>
           <input type="number" class="form-control" id="inputYear">
+        </div>
+        <div class="col-md-6">
+          <label for="inputSalon" class="form-label"> Car Salon</label>
+          <input type="text" class="form-control" id="inputCarSalon">
         </div>
         <div class="col-md-4">
           <label for="inputVolume" class="form-label">State</label>
@@ -61,12 +72,7 @@
         
         <div class="col-md-2">
           <label for="inputTransmition" class="form-label">Transmition</label>
-          <select id="inputTransmition" class="form-select">
-            <option selected>Transmition</option>
-            <option>Automat</option>
-            <option>Robot</option>
-            <option>Manual</option>
-          </select>
+          <select class="transmitionSelect form-select" id="transmitionSelectCol12"></select>
         </div>
         <div class="col-12">
           <div class="form-check">
