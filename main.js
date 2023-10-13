@@ -202,10 +202,6 @@ closeModalBtn.addEventListener("click", function()
 });
 
 
-
-
-
-
 editForm.addEventListener("submit", function (e) {
   e.preventDefault(); // Заборона дії за замовчуванням (відправки форми)
 
