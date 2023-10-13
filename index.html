@@ -30,12 +30,12 @@
           <input type="text" id="editYear" placeholder="Year">
         </div>
         <div>
-          <input type="text" id="editState" placeholder="State">
+          <select class="volumeSelect" id="volumeSelectModal"></select>
         </div>
         <div>
           <select class="transmitionSelect form-select" id="transmitionSelectModal"></select>
         </div>
-        <button type="submit">Save</button>
+        <button type="submit" id="saveButton">Save</button>
       </form>
     </div>
   </div>
@@ -64,10 +64,10 @@
           <input type="text" class="form-control" id="inputCarSalon">
         </div>
         <div class="col-md-4">
-          <label for="inputVolume" class="form-label">State</label>
-          <select id="inputVolume" class="form-select">
-            <option selected>Volume</option>
-          </select>
+          <div>
+            <label for="inputVolume" class="form-label">State</label>
+          </div>
+          <select class="volumeSelect form-select" id="volumeSelectCol12"></select>
         </div>
         
         <div class="col-md-2">
@@ -75,11 +75,6 @@
           <select class="transmitionSelect form-select" id="transmitionSelectCol12"></select>
         </div>
         <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
           </div>
         </div>
         <div class="col-12">
