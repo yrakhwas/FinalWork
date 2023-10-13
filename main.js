@@ -105,6 +105,7 @@ function openModal(rowIndex)
   const editYearInput = document.getElementById("editYear");
   const editVolumeInput = document.getElementById("volumeSelectCol12");
   const editTransmitionInput = document.getElementById("editTransmition");
+  const index = rowIndex;
 
   // Заповніть поля вводу значеннями з автомобіля
   editBrandInput.value = carToEdit.brand;
@@ -114,6 +115,39 @@ function openModal(rowIndex)
   editYearInput.value = carToEdit.year;
   volumeSelectModal.value = carToEdit.volume;
   transmitionSelectModal.value = carToEdit.transmition;
+  saveButton.addEventListener("click", function () {
+    // Отримайте значення полів форми редагування
+    const editedBrand = document.getElementById("editBrand").value;
+    const editedModel = document.getElementById("editModel").value;
+    const editedColour = document.getElementById("colourSelectModal").value;
+    const editedCarSalon = document.getElementById("editSalon").value;
+    const editedYear = document.getElementById("editYear").value;
+    const editedVolume = document.getElementById("volumeSelectModal").value;
+    const editedTransmition = document.getElementById("transmitionSelectModal").value;
+  
+    // Отримайте індекс редагованого автомобіля (можливо ви вже зберігаєте його)
+    const editedCarIndex = index;
+  
+    // Оновіть дані автомобіля в масиві `savedCars`
+    savedCars[editedCarIndex] = {
+      brand: editedBrand,
+      model: editedModel,
+      colour: editedColour,
+      carSalon: editedCarSalon,
+      year: editedYear,
+      volume: editedVolume,
+      transmition: editedTransmition
+    };
+  
+    // Оновіть збережені дані в localStorage
+    localStorage.setItem("cars", JSON.stringify(savedCars));
+  
+    // Оновіть таблицю для відображення оновлених даних
+    updateTable();
+  
+    // Закрийте модальне вікно
+    closeModal();
+  });
 
 }
 
@@ -168,39 +202,7 @@ closeModalBtn.addEventListener("click", function()
 });
 
 
-saveButton.addEventListener("click", function () {
-  // Отримайте значення полів форми редагування
-  const editedBrand = document.getElementById("editBrand").value;
-  const editedModel = document.getElementById("editModel").value;
-  const editedColour = document.getElementById("colourSelectModal").value;
-  const editedCarSalon = document.getElementById("editSalon").value;
-  const editedYear = document.getElementById("editYear").value;
-  const editedVolume = document.getElementById("volumeSelectModal").value;
-  const editedTransmition = document.getElementById("transmitionSelectModal").value;
 
-  // Отримайте індекс редагованого автомобіля (можливо ви вже зберігаєте його)
-  const editedCarIndex = parseInt(editButton.getAttribute("data-index"));
-
-  // Оновіть дані автомобіля в масиві `savedCars`
-  savedCars[editedCarIndex] = {
-    brand: editedBrand,
-    model: editedModel,
-    colour: editedColour,
-    carSalon: editedCarSalon,
-    year: editedYear,
-    volume: editedVolume,
-    transmition: editedTransmition
-  };
-
-  // Оновіть збережені дані в localStorage
-  localStorage.setItem("cars", JSON.stringify(savedCars));
-
-  // Оновіть таблицю для відображення оновлених даних
-  updateTable();
-
-  // Закрийте модальне вікно
-  closeModal();
-});
 
 
 
@@ -217,7 +219,7 @@ editForm.addEventListener("submit", function (e) {
   const editedTransmition = document.getElementById("transmitionSelectModal").value;
 
   // Отримайте індекс редагованого автомобіля (можливо ви вже зберігаєте його)
-const editedCarIndex = parseInt(editButton.getAttribute("data-index"));
+const editedCarIndex = index;
 
   // Оновіть дані автомобіля в масиві `savedCars`
   savedCars[editedCarIndex] = {
