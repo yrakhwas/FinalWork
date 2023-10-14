@@ -9,7 +9,9 @@ const colorOptions = ["Червоний", "Синій", "Зелений", "Жо�
 const transmitionOption = ["Automat", "Robot", "Manual"];
 const volumeOption = [0.9, 1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.2, 3.5,3.7,4.0]
 const saveButton = document.getElementById("saveButton");
-
+const openModalBtn = document.getElementById('openModalBtn');
+const modalData = document.getElementById('modalData');
+const list = document.getElementById('list');
 
 const colourSelectModal = document.getElementById("colourSelectModal");
 const colourSelectCol12 = document.getElementById("colourSelectCol12");
@@ -76,7 +78,6 @@ function createDeleteButton(rowIndex) {
 // Функція для редагування автомобіля
 function editCar(rowIndex) {
   const carToEdit = savedCars[rowIndex];
-  // Заповніть форму редагування з даними автомобіля
   fillEditForm(carToEdit);
   openModal(rowIndex);
 
@@ -86,9 +87,7 @@ function editCar(rowIndex) {
 // Функція для видалення автомобіля
 function deleteCar(rowIndex) {
   savedCars.splice(rowIndex, 1);
-  // Оновіть збережені дані в localStorage
   localStorage.setItem("cars", JSON.stringify(savedCars));
-  // Оновіть таблицю для відображення оновлених даних
   updateTable();
 }
 
@@ -155,7 +154,7 @@ function closeModal()
 {
   modal.style.display = "none";
 }
-// Викликати функцію для відображення збережених даних
+
 updateTable();
 closeModalBtn.addEventListener("click", function () {
   closeModal();
@@ -237,6 +236,9 @@ const editedCarIndex = index;
   // Закрийте модальне вікно
   closeModal();
 });
+
+listItem.addEventListener('click', openModal);
+
 
 for (const transmition of transmitionOption) {
   const optionElement = document.createElement("option");
